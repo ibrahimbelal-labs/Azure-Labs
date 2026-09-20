@@ -4,13 +4,12 @@ A practical repository documenting hands-on labs, cloud infrastructure implement
 
 ---
 
-## Active Lab
+## Completed Labs
 
 ### Lab 01: Manage Microsoft Entra ID Identities
-* **Status:** In Progress
-* **Overview:** Implementing and administering identity lifecycle management, group governance, and external collaboration within Microsoft Entra ID.
-* **Key Objectives:**
-  * Create and configure user accounts and directory properties.
-  * Implement assigned and dynamic membership user groups.
-  * Explore custom domain name verification and tenant administration.
-  * Manage Entra B2B external collaboration and guest invitations.
+* **Status:** Completed
+* **Focus Areas:**
+  * **User Lifecycle Management:** Created and managed cloud user identities (`az104-user1`, `az104-user2`) with precise enterprise profile attributes (Department, Job Title, Usage Location).
+  * **Group Governance:** Configured assigned security groups (`IT Cloud Administrators`) for centralized access control and license assignment.
+  * **Dynamic Membership Architecture:** Analyzed dynamic query criteria based on user directory attributes (`user.department -eq "IT"`).
+  * **External Collaboration (B2B):** Managed guest lifecycle invitations, onboarding external consultants, and scoping security boundaries between Members and Guests.
