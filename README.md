@@ -22,6 +22,8 @@ A practical repository documenting hands-on labs, cloud infrastructure implement
   * **Scope Isolation:** Created dedicated resource groups (`az104-02-rg1`) to enforce granular boundary management.
   * **Built-in Role Assignment:** Assigned `Virtual Machine Contributor` to `az104-user1` at the resource group scope, enforcing the principle of least privilege.
   * **Custom Role Definition:** Authored and registered a custom RBAC role (`Custom Support Request Role`) leveraging fine-grained control actions (`Microsoft.Support/*`).
+ 
+  ---
   * **Access Verification:** Validated effective permissions across hierarchical scopes (Subscription vs. Resource Group) using the Azure IAM Check Access utility.
 ### Lab 02b: Manage Governance via Azure Policy
 * **Status:** Completed
