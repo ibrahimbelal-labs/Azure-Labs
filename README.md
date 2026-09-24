@@ -39,3 +39,12 @@ A practical repository documenting hands-on labs, cloud infrastructure implement
   * **Resource Protection:** Configured and validated `Delete` resource locks to protect critical resource groups from accidental deletion.
   * **Resource Governance & Organization:** Applied environment and cost-allocation tags (`Environment: Dev`, `Department: IT`) and tracked them globally across the tenant.
   * **Infrastructure as Code (IaC):** Exported ARM templates into JSON format, analyzed template schema (`parameters`, `variables`, `resources`), and programmatically provisioned a managed disk (`az104-disk1`) via custom JSON template deployment.
+---
+
+### Lab 05: Implement Intersite Connectivity
+* **Status:** Completed
+* **Focus Areas:**
+  * **Network Topology:** Designed a multi-region network layout comprising hub and spoke topologies across different address spaces (`10.50.0.0/16`, `10.51.0.0/16`, `10.52.0.0/16`).
+  * **Local Peering:** Established bi-directional local virtual network peering between co-located VNets (`vnet0` and `vnet1` in East US).
+  * **Global Peering:** Implemented cross-region global peering connecting workloads across geographically dispersed datacenters over the Microsoft global backbone.
+  * **Routing Boundaries:** Analyzed traffic flow properties (Allow Gateway Transit, Forwarded Traffic) and validated non-transitive routing constraints inherent to cloud peering architectures.
