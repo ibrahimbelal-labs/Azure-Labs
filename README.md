@@ -23,3 +23,9 @@ A practical repository documenting hands-on labs, cloud infrastructure implement
   * **Built-in Role Assignment:** Assigned `Virtual Machine Contributor` to `az104-user1` at the resource group scope, enforcing the principle of least privilege.
   * **Custom Role Definition:** Authored and registered a custom RBAC role (`Custom Support Request Role`) leveraging fine-grained control actions (`Microsoft.Support/*`).
   * **Access Verification:** Validated effective permissions across hierarchical scopes (Subscription vs. Resource Group) using the Azure IAM Check Access utility.
+### Lab 02b: Manage Governance via Azure Policy
+* **Status:** Completed
+* **Focus Areas:**
+  * **Policy Assignment & Scoping:** Assigned the built-in `Allowed locations` policy scoped specifically to the `az104-02-rg1` resource group.
+  * **Policy Enforcement Testing:** Validated prevention rules by attempting to deploy non-compliant resources in unauthorized regions and analyzing ARM rejection errors.
+  * **Compliance Auditing:** Explored the Azure Policy Compliance dashboard to understand evaluation cycles, resource compliance states, and remediation lifecycles.
