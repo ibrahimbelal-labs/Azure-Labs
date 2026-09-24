@@ -29,3 +29,11 @@ A practical repository documenting hands-on labs, cloud infrastructure implement
   * **Policy Assignment & Scoping:** Assigned the built-in `Allowed locations` policy scoped specifically to the `az104-02-rg1` resource group.
   * **Policy Enforcement Testing:** Validated prevention rules by attempting to deploy non-compliant resources in unauthorized regions and analyzing ARM rejection errors.
   * **Compliance Auditing:** Explored the Azure Policy Compliance dashboard to understand evaluation cycles, resource compliance states, and remediation lifecycles.
+---
+
+### Lab 03: Manage Azure Resources by Using the Azure Portal and ARM Templates
+* **Status:** Completed
+* **Focus Areas:**
+  * **Resource Protection:** Configured and validated `Delete` resource locks to protect critical resource groups from accidental deletion.
+  * **Resource Governance & Organization:** Applied environment and cost-allocation tags (`Environment: Dev`, `Department: IT`) and tracked them globally across the tenant.
+  * **Infrastructure as Code (IaC):** Exported ARM templates into JSON format, analyzed template schema (`parameters`, `variables`, `resources`), and programmatically provisioned a managed disk (`az104-disk1`) via custom JSON template deployment.
