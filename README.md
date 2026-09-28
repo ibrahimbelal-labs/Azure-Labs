@@ -48,3 +48,13 @@ A practical repository documenting hands-on labs, cloud infrastructure implement
   * **Local Peering:** Established bi-directional local virtual network peering between co-located VNets (`vnet0` and `vnet1` in East US).
   * **Global Peering:** Implemented cross-region global peering connecting workloads across geographically dispersed datacenters over the Microsoft global backbone.
   * **Routing Boundaries:** Analyzed traffic flow properties (Allow Gateway Transit, Forwarded Traffic) and validated non-transitive routing constraints inherent to cloud peering architectures.
+---
+
+### Lab 06 (Part 2): Implement Internal Load Balancer (Private Traffic Management)
+* **Status:** Completed
+* **Architecture:** Multi-tier isolated network architecture (`frontend-subnet` & `backend-subnet`).
+* **Focus Areas:**
+  * **Private Layer-4 Balancing:** Deployed an Internal Load Balancer (Standard SKU) with a dynamic private IP frontend (`10.70.2.x`) to completely eliminate direct internet exposure for application workloads.
+  * **Network Security Isolation:** Configured Network Security Group (NSG) rules targeting the backend subnet to strictly allow intra-VNet HTTP traffic (`VirtualNetwork` service tag).
+  * **Workload Provisioning & Probing:** Deployed two backend Windows Server instances, automated IIS configuration via Run Command, and monitored health using TCP Port 80 probes.
+  * **Private Failover Validation:** Simulated node degradation and verified internal automated failover by issuing programmatic HTTP requests from an isolated client VM within the frontend tier.
