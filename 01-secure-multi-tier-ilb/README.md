@@ -1,7 +1,5 @@
 # Project 01: Secure Multi-Tier Private Infrastructure with Azure Internal Load Balancer
 
-![Architecture Diagram](./architecture-diagram.png)
-
 ## Business Scenario & Objective
 Enterprise workloads processing internal business logic, databases, or microservices require strict perimeter isolation. Exposing these critical systems directly to the public internet creates unnecessary attack surfaces.
 
@@ -36,6 +34,3 @@ The objective of this project is to architect, deploy, and validate a secure, hi
 ### 1. Automated Web Server Provisioning
 Both backend virtual machines were provisioned with IIS and unique identifiers using Azure Run Command:
 
-```powershell
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
-Set-Content -Path "C:\inetpub\wwwroot\Default.htm" -Value "Internal Tier: Response from $env:computername"
