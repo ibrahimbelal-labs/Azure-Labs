@@ -58,3 +58,39 @@ A practical repository documenting hands-on labs, cloud infrastructure implement
   * **Network Security Isolation:** Configured Network Security Group (NSG) rules targeting the backend subnet to strictly allow intra-VNet HTTP traffic (`VirtualNetwork` service tag).
   * **Workload Provisioning & Probing:** Deployed two backend Windows Server instances, automated IIS configuration via Run Command, and monitored health using TCP Port 80 probes.
   * **Private Failover Validation:** Simulated node degradation and verified internal automated failover by issuing programmatic HTTP requests from an isolated client VM within the frontend tier.
+# Enterprise Azure Storage Architecture: Lifecycle Automation, SAS Governance & Private Link Isolation
+
+## Overview
+This project implements an enterprise-grade, Zero-Trust Azure Storage architecture. It demonstrates secure data tiering, automated cost optimization via Lifecycle Management rules, fine-grained access control using Shared Access Signatures (SAS) and Stored Access Policies, and complete network isolation using Azure Private Link (Private Endpoints) and Service Endpoints.
+
+---
+
+## Architectural Diagram
+
+```text
+       [ Public Internet ]
+               |
+               X (Blocked by Storage Firewall)
+               |
+   +-----------V----------------------------------------------------+
+   | Azure Virtual Network (vnet-storage-lab: 10.0.0.0/16)          |
+   |                                                                |
+   |  Subnet: default (10.0.0.0/24)                                 |
+   |   - Service Endpoint: Microsoft.Storage                        |
+   |   - Private Endpoint NIC (10.0.0.x)                            |
+   |            |                                                   |
+   |            +-------------------+                               |
+   +--------------------------------|-------------------------------+
+                                    | Private Link Connection
+                                    |
+   +--------------------------------V-------------------------------+
+   | Azure Storage Account (stlab07azibra)                          |
+   |                                                                |
+   |  Private DNS Zone: privatelink.blob.core.windows.net          |
+   |  (Resolves FQDN directly to 10.0.0.x private IP)               |
+   |                                                                |
+   |  Containers & Data Plane:                                      |
+   |   - Container: data-reports (Private / No Anonymous Access)    |
+   |   - Stored Access Policy: read-only-policy (rl)                |
+   |   - Lifecycle Policy: Hot -> Cool (30d) -> Archive (90d) -> Del|
+   +----------------------------------------------------------------+
