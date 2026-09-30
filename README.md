@@ -94,3 +94,31 @@ This project implements an enterprise-grade, Zero-Trust Azure Storage architectu
    |   - Stored Access Policy: read-only-policy (rl)                |
    |   - Lifecycle Policy: Hot -> Cool (30d) -> Archive (90d) -> Del|
    +----------------------------------------------------------------+
+# Azure IaaS: Virtual Machine Automation, Managed Disk Scaling & Cost Governance
+
+## Overview
+This project demonstrates the end-to-end administration and governance of Azure Virtual Machines (IaaS). It covers high-availability provisioning within Availability Zones, post-deployment automation via scripting, managed data disk lifecycle (attachment, host caching, online expansion), compute vertical scaling, and FinOps cost-control automation.
+
+---
+
+## Architecture Diagram
+
+```text
+  [ Azure Region ]
+   |
+   +-- [ Availability Zone 1 ] ------------------------------------+
+       |                                                           |
+       |  Virtual Network: vnet-az104-lab08 (10.0.0.0/16)          |
+       |   - Subnet: default (10.0.0.0/24)                         |
+       |   - Network Security Group (NSG): Inbound HTTP:80, RDP:3389|
+       |                                                           |
+       |  VM: vm-az104-web01                                       |
+       |   - OS Disk: Standard SSD (Windows Server 2022)           |
+       |   - Data Disk: Standard SSD (Scaled 32GB -> 64GB)         |
+       |     * Host Caching: Read/Write                            |
+       |     * Partition: GPT / NTFS (F: Drive)                    |
+       |                                                           |
+       |  Post-Provisioning & Automation:                          |
+       |   - IIS Web Server installation via Run Command / Ext     |
+       |   - Auto-Shutdown Policy: 19:00 (UTC+3) Daily             |
+       +-----------------------------------------------------------+
